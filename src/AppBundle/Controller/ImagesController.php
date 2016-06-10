@@ -5,9 +5,10 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 use AppBundle\Entity\Image;
-use AppBundle\Form\Type\ImageType;
+use AppBundle\Form\ImageForm;
 
 
 class ImagesController extends Controller
@@ -19,7 +20,7 @@ class ImagesController extends Controller
     {
 
         $image = new Image();
-        $form = $this->createForm(ImageType::class, $image);
+        $form = $this->createForm(ImageForm::class, $image);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -45,22 +46,23 @@ class ImagesController extends Controller
 
     /**
      * @Route("/list", name="list")
-     *
-     * TODO: pagination
-     * TODO: validation messages cusomization
-     * TODO: fix email
-     * TODO: make default page to new
-     * TODO: check TYpe for forms
      */
     public function listAction(Request $request)
     {
-        $images = $this->getDoctrine()
-            ->getRepository('AppBundle:Image')
-            ->findAll();
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Image');
+        $limit = 5;
+        $thisPage = $request->query->get('page', 1);
+
+        $query = $repository->createQueryBuilder('image')
+            ->orderBy('image.id', 'DESC')
+            ->getQuery();
+
+        $images = $this->__paginate($query, $thisPage);
+        $maxPages = ceil($images->count() / $limit);
 
         return $this->render(
             'images/list.html.twig',
-            array('images' => $images)
+            compact('images', 'maxPages', 'thisPage')
         );
     }
 
@@ -78,5 +80,16 @@ class ImagesController extends Controller
         );
 
         return $fileName;
+    }
+
+    private function __paginate($dql, $page = 1, $limit = 5)
+    {
+        $paginator = new Paginator($dql);
+
+        $paginator->getQuery()
+            ->setFirstResult($limit * ($page - 1)) // Offset
+            ->setMaxResults($limit); // Limit
+
+        return $paginator;
     }
 }

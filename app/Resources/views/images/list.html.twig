@@ -3,10 +3,35 @@
 {% block body %}
     <h1>Gallery</h1>
 
-    {% for image in images %}
-        <p> Email: {{ image.email }} </p>
-        <p> Unique id: {{ image.getUniqueId }} </p>
-        <img src="{{ asset('uploads/images/' ~ image.file) }}" width="50px"/>
-    {% endfor %}
+    {% if images is not empty %}
+        {% for image in images %}
+            <p> Email: {{ image.email }} </p>
+            <p> Unique id: {{ image.getUniqueId }} </p>
+            <img src="{{ asset('uploads/images/' ~ image.file) }}" width="50px"/>
+        {% endfor %}
+    {% else %}
+         0 result
+    {% endif %}
+
+    {% if maxPages > 1 %}
+        <ul class="pagination pagination-sm">
+            {# `«` arrow  #}
+            <li {{ thisPage == 1 ? 'class="disabled"' }}>
+                <a href="{{ path('list', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}">«</a>
+            </li>
+
+            {# Render each page number #}
+            {% for i in 1..maxPages %}
+                <li {{ thisPage == i ? 'class="active"' }}>
+                    <a href="{{ path('list', {page: i}) }}">{{ i }}</a>
+                </li>
+            {% endfor %}
+
+            {# `»` arrow #}
+            <li {{ thisPage == maxPages ? 'class="disabled"' }}>
+                <a href="{{ path('list', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">»</a>
+            </li>
+        </ul>
+    {% endif %}
 
 {% endblock %}

@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\HttpFoundation\File\File;
+
 
 /**
  * @ORM\Entity
@@ -32,6 +32,8 @@ class Image
     protected $file;
 
     /**
+     * @ORM\Column(type="string")
+     *
      * @Assert\Email(
      *     message = "The email '{{ value }}' is not a valid email.",
      *     checkMX = true

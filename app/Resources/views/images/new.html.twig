@@ -5,6 +5,14 @@
     <h1> Upload new image </h1>
 
     {{ form_start(form) }}
-    {{ form_widget(form) }}
+
+    {{ form_label(form.email) }}
+    {{ form_widget(form.email) }}
+    {{ form_errors(form.email) }}
+
+    {{ form_label(form.file) }}
+    {{ form_widget(form.file) }}
+    {{ form_errors(form.file) }}
+
     {{ form_end(form) }}
 {% endblock %}
