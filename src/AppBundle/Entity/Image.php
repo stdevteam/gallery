@@ -27,16 +27,16 @@ class Image
      * @ORM\Column(type="string")
      *
      * @Assert\NotBlank(message="Please, upload the image.")
-     * @Assert\File(mimeTypes={ "image/*" })
+     * @Assert\File(mimeTypes={ "image/*" }, mimeTypesMessage="File format is not allowed. Supported formats png, jpg, gif, jpeg, etc....")
      */
     protected $file;
 
     /**
      * @ORM\Column(type="string")
      *
+     * @Assert\NotBlank(message="Please, enter the email.")
      * @Assert\Email(
-     *     message = "The email '{{ value }}' is not a valid email.",
-     *     checkMX = true
+     *     message = "The email '{{ value }}' is not a valid email."
      * )
      */
     protected $email;

@@ -181,6 +181,14 @@ input,textarea,a,button {
     margin-top: 15px;
     font-family: "RobotoBold";
 }
+.inputfile + label .uploaded_file_name {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    margin: 12px auto 0 auto;
+}
 .inputfile + label:hover h1 {
     color: rgba(110, 127, 145, 0.8);
 }
@@ -243,12 +251,24 @@ input,textarea,a,button {
     background-color: #27303c;
     margin-top: 30px;
 }
-.pagination>li>a, .pagination>li>span {
+.pagination>span>a, .pagination>span.current {
     background-color: #3f4a5a !important;
     border: 1px solid #27303c !important;
     color: #fff !important;
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    text-decoration: none;
 }
-.pagination>li>a:hover, .pagination>li>span:hover {
+.pagination > span:first-child, .pagination > span:first-child a {
+    border-radius: 5px 0 0 5px;
+}
+.pagination > span:last-child, .pagination > span:last-child a {
+    border-radius: 0 5px 5px 0;
+}
+.pagination>span>a:hover, .pagination>span>span.current:hover {
     background-color: #27303c !important;
 }
 .tac {

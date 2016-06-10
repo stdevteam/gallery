@@ -10,26 +10,26 @@
         <div class="row">
             <div class="uploadForm">
                 {{ form_start(form) }}
-                <div class="field error">
+                <div class="field">
                     {{ form_widget(form.email) }}
                     <span class="errortxt">
                         {{ form_errors(form.email) }}
                     </span>
                 </div>
-                <div class="upload error">
+                <div class="upload">
                     <div class="box">
                         {{ form_widget(form.file,  { 'id': 'file-6' }) }}
-                        {{ form_errors(form.file) }}
                         <label for="file-6">
                             <i class="fa fa-upload" aria-hidden="true"></i>
-                            <h1>Upload Image</h1>
+                            <h1 id="input_title">Upload Image</h1>
                         </label>
                     </div>
+                    <span class="errortxt">{{ form_errors(form.file) }}</span>
                 </div>
                 <div class="sendBtn">
-                    {{ form_end(form) }}
-                    {#<input type="button" class="btn btn-primary" value="Upload">#}
+                    <input type="submit" class="btn btn-primary" value="Upload">
                 </div>
+                {{ form_end(form) }}
             </div>
         </div>
         <div class="clear"></div>
@@ -38,5 +38,23 @@
     <!-- End Image Upload Block -->
 
 {% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            $('#file-6').change(function () {
+                var file_name = $(this).val().split('\\').pop();
+                var input_title = '<span class="uploaded_file_name">' + file_name + '</span>';
+                $(this).parent().find('#input_title').replaceWith(input_title);
+            });
+
+        });
+
+    </script>
+{% endblock %}
+
+
 
 

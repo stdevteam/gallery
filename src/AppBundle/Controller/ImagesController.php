@@ -20,7 +20,7 @@ class ImagesController extends Controller
     {
 
         $image = new Image();
-        $form = $this->createForm(ImageForm::class, $image);
+        $form = $this->createForm(ImageForm::class, $image, array('attr' => array('novalidate' => 'novalidate')));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

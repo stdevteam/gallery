@@ -14,8 +14,7 @@ class ImageForm extends AbstractType
   {
     $builder
     ->add('email', EmailType::class, array('attr' => array('placeholder' => 'Please Type Your Email Address')))
-    ->add('file', FileType::class, array('attr' => array('class' => 'inputfile inputfile-5')))
-    ->add('save', SubmitType::class, array('label' => 'Upload', 'attr' => array('class' => 'btn btn-primary')));
+    ->add('file', FileType::class, array('attr' => array('class' => 'inputfile inputfile-5')));
   }
   public function configureOptions(OptionsResolver $resolver)
   {
