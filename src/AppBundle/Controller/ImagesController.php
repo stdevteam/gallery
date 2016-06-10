@@ -5,17 +5,17 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 use AppBundle\Entity\Image;
 use AppBundle\Form\Type\ImageType;
 
+
 class ImagesController extends Controller
 {
     /**
-     * @Route("/new", name="new")
+     * @Route("/", name="create")
      */
-    public function newAction(Request $request)
+    public function createAction(Request $request)
     {
 
         $image = new Image();
@@ -45,6 +45,12 @@ class ImagesController extends Controller
 
     /**
      * @Route("/list", name="list")
+     *
+     * TODO: pagination
+     * TODO: validation messages cusomization
+     * TODO: fix email
+     * TODO: make default page to new
+     * TODO: check TYpe for forms
      */
     public function listAction(Request $request)
     {
