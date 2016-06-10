@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Gallery</h1>
+
+    {% for image in images %}
+        <p> Email: {{ image.email }} </p>
+        <p> Unique id: {{ image.getUniqueId }} </p>
+        <img src="{{ asset('uploads/images/' ~ image.file) }}" width="50px"/>
+    {% endfor %}
+
+{% endblock %}

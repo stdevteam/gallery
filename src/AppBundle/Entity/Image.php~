@@ -1,0 +1,96 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+
+/**
+ * @ORM\Entity
+ */
+class Image
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=32)
+     */
+    private $unique_id;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a Image file.")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
+     */
+    protected $file;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $email;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set uniqueId
+     *
+     * @param string $uniqueId
+     *
+     * @return Image
+     */
+    public function setUniqueId($uniqueId)
+    {
+        $this->unique_id = $uniqueId;
+
+        return $this;
+    }
+
+    /**
+     * Get uniqueId
+     *
+     * @return string
+     */
+    public function getUniqueId()
+    {
+        return $this->unique_id;
+    }
+
+    /**
+     * Set file
+     *
+     * @param string $file
+     *
+     * @return Image
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    /**
+     * Get file
+     *
+     * @return string
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+}
