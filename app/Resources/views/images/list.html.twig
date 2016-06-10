@@ -1,22 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Gallery</h1>
 
-    {% if images is not empty %}
-        {% for image in images %}
-            <p> Email: {{ image.email }} </p>
-            <p> Unique id: {{ image.getUniqueId }} </p>
-            <img src="{{ asset('uploads/images/' ~ image.file) }}" width="50px"/>
-        {% endfor %}
-    {% else %}
-         0 result
-    {% endif %}
-
-    {# display navigation #}
-    <div class="navigation">
-        {{ knp_pagination_render(images) }}
+    <div class="gallery row">
+        {% if images is not empty %}
+            {% for image in images %}
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+                    <div class="item" style="background-image: url('{{ asset('uploads/images/' ~ image.file) }}');">
+                        <p><span>{{ image.email }}</span> {{ image.getUniqueId }} </p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            0 result
+        {% endif %}
     </div>
 
+    <div class="row bgDark">
+        <div class="col-md-12">
+            <nav class="tac">
+                <div class="pagination">
+                    {{ knp_pagination_render(images) }}
+                </div>
+            </nav>
+        </div>
+    </div>
 
 {% endblock %}

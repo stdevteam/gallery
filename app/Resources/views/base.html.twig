@@ -2,12 +2,85 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta name="description" content="">
+        <meta name="author" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <!-- Start Theme CSS -->
+
+        <link rel="stylesheet" href="{{ asset('static/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('static/css/media.css') }}">
+        <link rel="stylesheet" href="{{ asset('static/assets/Bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('static/assets/FontAwesome/css/font-awesome.min.css') }}">
+
+        <!-- Start Particles.js Style -->
+
+        <link rel="stylesheet" media="screen"  href="{{ asset('static/assets/Particles.js/css/style.css') }}" >
+
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body class="bgImg">
+
+
+
+        <div class="container-fluid">
+
+            <!-- Start Header Block -->
+            <div class="row navi">
+                <div class="col-md-12">
+                    <nav class="navbar">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">Flaty</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="{{ path('create') }}">Home</a></li>
+                                    <li><a href="{{ path('list') }}">Gallery</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- End Header Block -->
+
+            {% block body %}
+
+
+            {% endblock %}
+
+        </div>
+
+        <!-- Start Theme Scripts -->
+
+        <script src="{{ asset('static/js/jquery-1.11.3.min.js') }}"></script>
+        <script src="{{ asset('static/assets/Bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('static/js/main.js') }}"></script>
+
+        <!-- Start Particles.js -->
+
+        <script src="{{ asset('static/assets/Particles.js/js/particles.js') }}"></script>
+        <script src="{{ asset('static/assets/Particles.js/js/app.js') }}"></script>
+
+        <!-- End Particles.js -->
+
+        <script src="{{ asset('static/js/jquery.custom-file-input.js') }}"></script>
+
+        <!-- End Theme Scripts -->
+
+
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>

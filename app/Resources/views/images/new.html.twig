@@ -2,17 +2,41 @@
 
 {% block body %}
 
-    <h1> Upload new image </h1>
+    <div id="particles-js"></div>
 
-    {{ form_start(form) }}
+    <!-- Start Image Upload Block -->
 
-    {{ form_label(form.email) }}
-    {{ form_widget(form.email) }}
-    {{ form_errors(form.email) }}
+    <div class="vertMiddle">
+        <div class="row">
+            <div class="uploadForm">
+                {{ form_start(form) }}
+                <div class="field error">
+                    {{ form_widget(form.email) }}
+                    <span class="errortxt">
+                        {{ form_errors(form.email) }}
+                    </span>
+                </div>
+                <div class="upload error">
+                    <div class="box">
+                        {{ form_widget(form.file,  { 'id': 'file-6' }) }}
+                        {{ form_errors(form.file) }}
+                        <label for="file-6">
+                            <i class="fa fa-upload" aria-hidden="true"></i>
+                            <h1>Upload Image</h1>
+                        </label>
+                    </div>
+                </div>
+                <div class="sendBtn">
+                    {{ form_end(form) }}
+                    {#<input type="button" class="btn btn-primary" value="Upload">#}
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
 
-    {{ form_label(form.file) }}
-    {{ form_widget(form.file) }}
-    {{ form_errors(form.file) }}
+    <!-- End Image Upload Block -->
 
-    {{ form_end(form) }}
 {% endblock %}
+
+

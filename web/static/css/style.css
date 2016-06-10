@@ -1,0 +1,272 @@
+/* Start Roboto Fonts */
+
+/* font-family: "RobotoRegular"; */
+@font-face {
+    font-family: "RobotoRegular";
+    src: url("../assets/Robotofonts/RobotoRegular/RobotoRegular.eot");
+    src: url("../assets/Robotofonts/RobotoRegular/RobotoRegular.eot?#iefix")format("embedded-opentype"),
+    url("../assets/Robotofonts/RobotoRegular/RobotoRegular.woff") format("woff"),
+    url("../assets/Robotofonts/RobotoRegular/RobotoRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "RobotoLight"; */
+@font-face {
+    font-family: "RobotoLight";
+    src: url("../assets/Robotofonts/RobotoLight/RobotoLight.eot");
+    src: url("../assets/Robotofonts/RobotoLight/RobotoLight.eot?#iefix")format("embedded-opentype"),
+    url("../assets/Robotofonts/RobotoLight/RobotoLight.woff") format("woff"),
+    url("../assets/Robotofonts/RobotoLight/RobotoLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "RobotoMedium"; */
+@font-face {
+    font-family: "RobotoMedium";
+    src: url("../assets/Robotofonts/RobotoMedium/RobotoMedium.eot");
+    src: url("../assets/Robotofonts/RobotoMedium/RobotoMedium.eot?#iefix")format("embedded-opentype"),
+    url("../assets/Robotofonts/RobotoMedium/RobotoMedium.woff") format("woff"),
+    url("../assets/Robotofonts/RobotoMedium/RobotoMedium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "RobotoBold"; */
+@font-face {
+    font-family: "RobotoBold";
+    src: url("../assets/Robotofonts/RobotoBold/RobotoBold.eot");
+    src: url("../assets/Robotofonts/RobotoBold/RobotoBold.eot?#iefix")format("embedded-opentype"),
+    url("../assets/Robotofonts/RobotoBold/RobotoBold.woff") format("woff"),
+    url("../assets/Robotofonts/RobotoBold/RobotoBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* End Roboto Fonts */
+
+/* Start General Styles */
+
+body,html {
+    height: 100%;
+}
+body {
+    font-size: 14px;
+    font-family: "RobotoLight" !important;
+    background: #0f1926 !important;
+}
+a {
+    text-decoration: none;
+    outline: none;
+}
+input,textarea,a,button {
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0px;
+    font-family: "RobotoLight";
+}
+.bgImg {
+    background-image: url("../img/header-bg.jpg") !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover !important;
+}
+.clear {
+    display: block;
+    clear: both;
+}
+
+/* End General Styles */
+
+/* Start Header Style */
+
+.navi {
+    background-color: #27303c;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+.navbar {
+    margin-bottom: 0px !important;
+    position: relative;
+    z-index: 12;
+}
+.navbar .icon-bar {
+    background-color: #fff;
+}
+.navbar a {
+    color: #fff;
+}
+.navbar-brand:hover {
+    color: #ddd;
+}
+.navbar-brand {
+    font-size: 21px;
+    text-transform: uppercase;
+    color: #fff;
+}
+.navbar-toggle {
+    margin-right: 0px !important;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: #3f4a5a !important;
+    color: #fff !important;
+}
+
+/* End Header Style */
+
+/* Start Image Upload Form Styles */
+
+.vertMiddle .uploadForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    z-index: 12;
+    background-color: #fff;
+    border-radius: 3px;
+    max-width: 600px;
+    width: 100%;
+    padding: 1.5em;
+}
+.field input {
+    height: 45px;
+    border: 1px solid #ddd;
+    padding: 0px 15px;
+    width: 100%;
+    background-color: transparent;
+    font-size: 14px;
+}
+.field input:focus {
+    border: 1px solid #3386CA;
+}
+
+/* upload */
+
+.upload {
+    position: relative;
+    padding-top: 1.5em 
+}
+.upload .box {
+    border: 2px dashed #ddd;
+    padding: 2px;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputfile + label {
+    width: 100%;
+    padding: 3em;
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+}
+.inputfile + label i {
+    color: rgba(110, 127, 145, 0.46);
+    font-size: 25px;
+}
+.inputfile + label h1 {
+    font-size: 25px;
+    text-transform: uppercase;
+    color: rgba(110, 127, 145, 0.46);
+    margin-top: 15px;
+    font-family: "RobotoBold";
+}
+.inputfile + label:hover h1 {
+    color: rgba(110, 127, 145, 0.8);
+}
+.sendBtn {
+    text-align: center;
+}
+.sendBtn input {
+    background-color: #3F4A5A;
+    padding: 10px 30px;
+    border: 1px solid #3F4A5A;
+    border-radius: 0px;
+    margin-top: 1.5em;
+}
+.sendBtn input:hover,.sendBtn input:focus {
+    opacity: 0.9;
+    background-color: #3F4A5A;
+    outline: none;
+}
+
+/* End Image Upload Form Styles */
+
+.gallery {
+    padding: 0px 15px;
+}
+.item {
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 30px;
+    box-shadow: 0px 0px 5px 0px rgba(39,48,60,1);
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.item img {
+    width: 100%;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0 0px 11px rgba(0, 0, 0, 0.6);
+}
+.item p {
+    padding: 15px;
+    font-family: "RobotoRegular";
+    text-align: center;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    background: #fff;
+    width: 100%;
+    border-radius: 0px 0px 5px 5px;
+}
+.item p span {
+    display: block;
+    margin-bottom: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+}
+.bgDark {
+    background-color: #27303c;
+    margin-top: 30px;
+}
+.pagination>li>a, .pagination>li>span {
+    background-color: #3f4a5a !important;
+    border: 1px solid #27303c !important;
+    color: #fff !important;
+}
+.pagination>li>a:hover, .pagination>li>span:hover {
+    background-color: #27303c !important;
+}
+.tac {
+    text-align: center;
+}
+.error input {
+    border-color: #FF4122;
+}
+.error .box {
+    border-color: #FF4122;
+}
+.error .box h1,.error .box i {
+    color: #FF4122;
+}
+.errortxt {
+    color: #FF4122;
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
