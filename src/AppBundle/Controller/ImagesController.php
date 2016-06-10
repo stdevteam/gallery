@@ -51,19 +51,18 @@ class ImagesController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository('AppBundle:Image');
         $limit = 5;
-        $thisPage = $request->query->get('page', 1);
 
         $query = $repository->createQueryBuilder('image')
             ->orderBy('image.id', 'DESC')
             ->getQuery();
 
-        $images = $this->__paginate($query, $thisPage);
-        $maxPages = ceil($images->count() / $limit);
-
-        return $this->render(
-            'images/list.html.twig',
-            compact('images', 'maxPages', 'thisPage')
+        $paginator  = $this->get('knp_paginator');
+        $images = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            $limit
         );
+        return $this->render('images/list.html.twig', compact('images'));
     }
 
     private function __get_and_move_file($image)
